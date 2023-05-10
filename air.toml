@@ -1,0 +1,15 @@
+# .air.toml
+
+# The directory that contains the main.go file
+root = "."
+
+# The main entry point of the application
+main = "main.go"
+
+# Specify the file extensions that should trigger a reload
+[build]
+command = "go build -o ./tmp/main ."
+dir = "."
+exclude_dirs = ["tmp"]
+exclude_files = []
+extensions = ["go"]
