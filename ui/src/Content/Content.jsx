@@ -1,4 +1,4 @@
-import { Flex, Text } from "@chakra-ui/react"
+import { Flex } from "@chakra-ui/react"
 import { Route, Routes } from "react-router-dom";
 import Applications from './Applications/Applications'
 import Companies from './Companies/Companies'
