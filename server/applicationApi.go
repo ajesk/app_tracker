@@ -17,7 +17,7 @@ func getApplications(c *gin.Context) {
 		return
 	}
 
-	c.IndentedJSON(http.StatusOK, applications)
+	JSON(c, http.StatusCreated, applications)
 }
 
 func getApplicationById(c *gin.Context) {
