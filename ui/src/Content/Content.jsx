@@ -6,9 +6,9 @@ import Companies from './Companies/Companies'
 const Content = () => {
 
     return (
-        <Flex direction="column">
+        <Flex margin="2em" direction="column">
             <Routes>
-                <Route path="/" exact element={<Applications />} />
+                <Route path="/applications" element={<Applications />} />
                 <Route path="/companies" element={<Companies />} />
             </Routes>
         </Flex>

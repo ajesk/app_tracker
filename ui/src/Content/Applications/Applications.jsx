@@ -1,6 +1,7 @@
 import { Text } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { getUserApplications } from "../../api/applictions";
+import ApplicationTable from "./ApplicationTable";
 
 const Applications = () => {
     const [applications, setApplications] = useState([]);
@@ -8,19 +9,17 @@ const Applications = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const applications = await getUserApplications(1);
-                setApplications(applications);
+                const res = await getUserApplications(1);
+                setApplications(res);
             } catch (error) {
-                console.log('Error:', error);
+                console.error('Error:', error);
             }
-
-
         }
         fetchData();
     }, []);
 
-    return applications.map((application) => <Text>{application.title}</Text>
-    );
+    console.log(applications)
+    return <ApplicationTable applications={applications} />;
 };
 
 export default Applications;

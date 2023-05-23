@@ -5,9 +5,9 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 function App() {
   return (
-    <Flex h="100%" direction={"row"} align="center" justify="flex-start">
-        <NavBar />
-        <Content />
+    <Flex h="100%" direction="row" align="flex-start" justify="flex-start">
+      <NavBar />
+      <Content />
     </Flex>
   );
 }
