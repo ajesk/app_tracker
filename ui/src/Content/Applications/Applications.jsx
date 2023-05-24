@@ -1,10 +1,12 @@
-import { Text } from "@chakra-ui/react";
+import { Box, Button } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { getUserApplications } from "../../api/applictions";
 import ApplicationTable from "./ApplicationTable";
+import ApplicationModal from "./ApplicationModal";
 
 const Applications = () => {
     const [applications, setApplications] = useState([]);
+    const [isOpen, showModal] = useState(false);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -18,8 +20,13 @@ const Applications = () => {
         fetchData();
     }, []);
 
-    console.log(applications)
-    return <ApplicationTable applications={applications} />;
+    return (
+        <Box>
+            <Button onClick={() => showModal(true)}>Add Application</Button>
+            <ApplicationTable applications={applications} />
+            <ApplicationModal isOpen={isOpen} handleClose={() => showModal(false)} />
+        </Box>
+    );
 };
 
 export default Applications;

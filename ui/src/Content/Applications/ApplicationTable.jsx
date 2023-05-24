@@ -15,7 +15,7 @@ const ApplicationTable = ({ applications = [] }) => {
                 </Thead>
                 <Tbody>
                     {
-                        applications.map((application) => <ApplicationRow application={application} />)
+                        applications.map((application) => <ApplicationRow key={application.id} application={application} />)
                     }
                 </Tbody>
             </Table>

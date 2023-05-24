@@ -14,7 +14,7 @@ const NavBar = () => {
         <>
             {
                 LinkItems.map((link) => (
-                    <Link to={link.to} style={{ textDecoration: 'none' }} _focus={{ boxShadow: 'none' }}>
+                    <Link key={link.name} to={link.to} style={{ textDecoration: 'none' }} _focus={{ boxShadow: 'none' }}>
                         <Flex
                             align="center"
                             p="4"
