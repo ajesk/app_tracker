@@ -15,8 +15,8 @@ const CreateApplicationForm = ({ handleSubmit }) => {
     };
 
     const submit = (e) => {
-        e.preventDefault();
-        handleSubmit(e, formData);
+        // e.preventDefault();
+        handleSubmit(formData);
     };
 
     return (

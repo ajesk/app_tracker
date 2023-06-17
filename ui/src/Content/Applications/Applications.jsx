@@ -2,11 +2,20 @@ import { Box, Button } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { getUserApplications } from "../../api/applictions";
 import ApplicationTable from "./ApplicationTable";
-import ApplicationModal from "./ApplicationModal";
+import CreateApplicationModal from "./CreateApplicationModal";
+import ApplicationDetailModal from "./ApplicationDetailModal";
+
+const defaultApplication = {
+    isOpen: false,
+    applicationId: 0
+};
 
 const Applications = () => {
     const [applications, setApplications] = useState([]);
     const [isOpen, showModal] = useState(false);
+    const [applicationModalDetail, setApplicationModalDetail] = useState(defaultApplication);
+    const showApplicaitonModal = (applicationId) => setApplicationModalDetail({isOpen: true, applicationId: applicationId}); 
+    const hideApplicationModal = () => setApplicationModalDetail(defaultApplication);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -23,8 +32,11 @@ const Applications = () => {
     return (
         <Box>
             <Button onClick={() => showModal(true)}>Add Application</Button>
-            <ApplicationTable applications={applications} />
-            <ApplicationModal isOpen={isOpen} handleClose={() => showModal(false)} />
+            <ApplicationTable applications={applications} showApplicationModal={showApplicaitonModal} />
+            <CreateApplicationModal isOpen={isOpen} handleClose={() => showModal(false)} />
+            <ApplicationDetailModal 
+                {...applicationModalDetail}
+                handleClose={() => hideApplicationModal()} />
         </Box>
     );
 };
